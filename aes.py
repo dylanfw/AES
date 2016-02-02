@@ -36,22 +36,26 @@ def KeyExpansion(key, w):
             temp = SubWord(temp)
         w[i] = w[i-Nk] ^ temp
 
+def SubWord(word):
+    for i in xrange(0, 4):
+        word[i] = SBox[word[i]]
+
 def Cipher(plaintext, w):
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
             state[row][col] = plaintext[row + 4*col]
 
-    state = AddRoundKey(state, w[0:Nb-1])  # Sec 5.1.4
+    AddRoundKey(state, w[0:Nb-1])   # Sec 5.1.4
 
     for r in xrange(1, Nr):
-        state = SubBytes(state)             # Sec 5.1.1
-        state = ShiftRows(state)            # Sec 5.1.2
-        state = MixColumns(state)           # Sec 5.1.3
-        state = AddRoundKey(state, w[r*Nb:(r+1)*Nb-1])
+        SubBytes(state)             # Sec 5.1.1
+        ShiftRows(state)            # Sec 5.1.2
+        MixColumns(state)           # Sec 5.1.3
+        AddRoundKey(state, w[r*Nb:(r+1)*Nb-1])
 
-    state = SubBytes(state)
-    state = ShiftRows(state)
-    state = AddRoundKey(state, w[Nr*Nb:(Nr+1)*Nb-1])
+    SubBytes(state)
+    ShiftRows(state)
+    AddRoundKey(state, w[Nr*Nb:(Nr+1)*Nb-1])
 
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
@@ -61,8 +65,7 @@ def Cipher(plaintext, w):
 def SubBytes(state):
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
-            tmp = state[row][col]
-            state[row][col] = SBox[tmp]
+            state[row][col] = SBox[state[row][col]]
 
 def ShiftRows(state):
     for row in xrange(1, 4):
@@ -73,7 +76,7 @@ def ShiftRows(state):
             state[row][Nb-1] = first
 
 def MixColumns(state):
-    temp = [0,0,0,0]
+    temp = [None] * 4
     for col in xrange(0, Nb):
         temp[0] = GaloisMultiply(0x02, state[0][col]) ^ GaloisMultiply(0x03, state[1][col]) ^ \
                   GaloisMultiply(0x01, state[2][col]) ^ GaloisMultiply(0x01, state[3][col])
@@ -109,9 +112,24 @@ def GaloisMultiply(a, b):
             b = (b << 1) % 256
         return tmp ^ b
 
+
+def AddRoundKey(state, w, r):
+    for col in xrange(0, Nb):
+        state[0][col] ^= w[r*Nb+col]
+        state[1][col] ^= w[r*Nb+col+1]
+        state[2][col] ^= w[r*Nb+col+2]
+        state[3][col] ^= w[r*Nb+col+3]
+
+
 #######################################
 #### TESTS TESTS TESTS TESTS TESTS ####
 #######################################
+def Test_SubWord():
+    word = [0x30,0x21,0x12,0x03]
+    sub  = [0x04,0xFD,0xC9,0x7B]
+    SubWord(word)
+    assert word == sub
+
 def Test_SubBytes():
     state = [[0x30,0x21,0x12,0x03],
              [0x74,0x65,0x56,0x47],
@@ -188,6 +206,14 @@ def TestApp(verbose = True):
         if verbose: print "-\tMixColumns: FAIL"
     else:
         if verbose: print "+\tMixColumns: PASS"
+
+    try:
+        Test_SubWord()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tSubWord: FAIL"
+    else:
+        if verbose: print "+\tSubWord: PASS"
 
     if(count > 0):
         print "%d tests failed" % count

@@ -72,6 +72,42 @@ def ShiftRows(state):
                 state[row][col] = state[row][col+1]
             state[row][Nb-1] = first
 
+def MixColumns(state):
+    temp = [0,0,0,0]
+    for col in xrange(0, Nb):
+        temp[0] = GaloisMultiply(0x02, state[0][col]) ^ GaloisMultiply(0x03, state[1][col]) ^ \
+                  GaloisMultiply(0x01, state[2][col]) ^ GaloisMultiply(0x01, state[3][col])
+
+        temp[1] = GaloisMultiply(0x01, state[0][col]) ^ GaloisMultiply(0x02, state[1][col]) ^ \
+                  GaloisMultiply(0x03, state[2][col]) ^ GaloisMultiply(0x01, state[3][col])
+
+        temp[2] = GaloisMultiply(0x01, state[0][col]) ^ GaloisMultiply(0x01, state[1][col]) ^ \
+                  GaloisMultiply(0x02, state[2][col]) ^ GaloisMultiply(0x03, state[3][col])
+
+        temp[3] = GaloisMultiply(0x03, state[0][col]) ^ GaloisMultiply(0x01, state[1][col]) ^ \
+                  GaloisMultiply(0x01, state[2][col]) ^ GaloisMultiply(0x02, state[3][col])
+
+        state[0][col] = temp[0]
+        state[1][col] = temp[1]
+        state[2][col] = temp[2]
+        state[3][col] = temp[3]
+
+# Multiplication GF(2^8) where a in {01, 02, 03}
+def GaloisMultiply(a, b):
+    if a == 0x01: return b
+    if a == 0x02:
+        if b & 0x80:
+            return ((b << 1) % 256) ^ 0x1B
+        else:
+            return (b << 1) % 256
+    if a == 0x03:
+        tmp = b
+        if b & 0x80:
+            b = (b << 1) % 256
+            b ^= 0x1B
+        else:
+            b = (b << 1) % 256
+        return tmp ^ b
 
 #######################################
 #### TESTS TESTS TESTS TESTS TESTS ####
@@ -100,6 +136,24 @@ def Test_ShiftRows():
     ShiftRows(state)
     assert state == shift
 
+def Test_GaloisMultiply():
+    assert GaloisMultiply(0x02, 0xD4) == 0xB3
+    assert GaloisMultiply(0x03, 0xBF) == 0xDA
+    assert GaloisMultiply(0x01, 0x5D) == 0x5D
+    assert GaloisMultiply(0x01, 0x30) == 0x30
+
+def Test_MixColumns():
+    state = [[0xdb,0xF2,0x01,0xc6],
+             [0x13,0x0A,0x01,0xc6],
+             [0x53,0x22,0x01,0xc6],
+             [0x45,0x5C,0x01,0xc6]]
+    mixed = [[0x8e,0x9F,0x01,0xc6],
+             [0x4d,0xDC,0x01,0xc6],
+             [0xa1,0x58,0x01,0xc6],
+             [0xbc,0x9D,0x01,0xc6]]
+    MixColumns(state)
+    assert state == mixed
+
 def TestApp(verbose = True):
     count = 0
     if verbose: print "Running tests..."
@@ -119,10 +173,33 @@ def TestApp(verbose = True):
     else:
         if verbose: print "+\tSubBytes: PASS"
 
+    try:
+        Test_GaloisMultiply()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tGaloisMultiply: FAIL"
+    else:
+        if verbose: print "+\tGaloisMultiply: PASS"
+
+    try:
+        Test_MixColumns()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tMixColumns: FAIL"
+    else:
+        if verbose: print "+\tMixColumns: PASS"
+
     if(count > 0):
         print "%d tests failed" % count
         exit()
     else:
         print "All tests passed!"
+
+def _printState(state):
+    for row in xrange(0, 4):
+        print "| ",
+        for col in xrange(0, Nb):
+            print "%x | " % state[row][col],
+        print "\n",
 
 TestApp()

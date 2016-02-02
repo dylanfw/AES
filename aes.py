@@ -66,28 +66,32 @@ def RotWord(word):
         word[i] = word[i+1]
     word[3] = first
 
-def Cipher(plaintext, w):
-    state = [ [None]*Nb ] * 4
+def Cipher(plaintext, key):
+    w = KeyExpansion(key)
+
+    state = [None] * 4
     for row in xrange(0, 4):
+        state[row] = [None]*Nb
         for col in xrange(0, Nb):
             state[row][col] = plaintext[row + 4*col]
 
-    AddRoundKey(state, w[0:Nb-1])   # Sec 5.1.4
+    AddRoundKey(state, w, 0)   # Sec 5.1.4
 
     for r in xrange(1, Nr):
         SubBytes(state)             # Sec 5.1.1
         ShiftRows(state)            # Sec 5.1.2
         MixColumns(state)           # Sec 5.1.3
-        AddRoundKey(state, w[r*Nb:(r+1)*Nb-1])
+        AddRoundKey(state, w, r)
 
     SubBytes(state)
     ShiftRows(state)
-    AddRoundKey(state, w[Nr*Nb:(Nr+1)*Nb-1])
+    AddRoundKey(state, w, Nr)
 
+    out = [None] * Nb*4
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
             out[row + 4*col] = state[row][col]
-    return ciphertext
+    return out
 
 def SubBytes(state):
     for row in xrange(0, 4):
@@ -142,10 +146,12 @@ def GaloisMultiply(a, b):
 
 def AddRoundKey(state, w, r):
     for col in xrange(0, Nb):
-        state[0][col] ^= w[r*Nb+col]
-        state[1][col] ^= w[r*Nb+col+1]
-        state[2][col] ^= w[r*Nb+col+2]
-        state[3][col] ^= w[r*Nb+col+3]
+        column = [state[0][col],state[1][col],state[2][col],state[3][col]]
+        temp = XorWords(column, w[r*Nb+col])
+        state[0][col] = temp[0]
+        state[1][col] = temp[1]
+        state[2][col] = temp[2]
+        state[3][col] = temp[3]
 
 
 #######################################
@@ -318,5 +324,10 @@ def _printExpandedKey(w):
         for j in xrange(0, 4):
             print "%s" % format(w[i][j], '02x'),
         print "\n",
+
+def _printText(input):
+    for i in xrange(0, Nb*4):
+        print "%s" % format(input[i], '02x'),
+    print
 
 TestApp()

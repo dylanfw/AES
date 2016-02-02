@@ -40,6 +40,12 @@ def SubWord(word):
     for i in xrange(0, 4):
         word[i] = SBox[word[i]]
 
+def RotWord(word):
+    first = word[0]
+    for i in xrange(0, 3):
+        word[i] = word[i+1]
+    word[3] = first
+
 def Cipher(plaintext, w):
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
@@ -130,6 +136,12 @@ def Test_SubWord():
     SubWord(word)
     assert word == sub
 
+def Test_RotWord():
+    word = [0x30,0x21,0x12,0x03]
+    sub  = [0x21,0x12,0x03,0x30]
+    RotWord(word)
+    assert word == sub
+
 def Test_SubBytes():
     state = [[0x30,0x21,0x12,0x03],
              [0x74,0x65,0x56,0x47],
@@ -215,6 +227,14 @@ def TestApp(verbose = True):
     else:
         if verbose: print "+\tSubWord: PASS"
 
+    try:
+        Test_RotWord()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tRotWord: FAIL"
+    else:
+        if verbose: print "+\tRotWord: PASS"
+
     if(count > 0):
         print "%d tests failed" % count
         exit()
@@ -223,9 +243,8 @@ def TestApp(verbose = True):
 
 def _printState(state):
     for row in xrange(0, 4):
-        print "| ",
         for col in xrange(0, Nb):
-            print "%x | " % state[row][col],
+            print "%s " % format(state[row][col], '02x'),
         print "\n",
 
 TestApp()

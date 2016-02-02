@@ -21,20 +21,40 @@ SBox = [
     0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16
 ]
 
-def KeyExpansion(key, w):
-    for i in xrange(0, Nk, 4):
-        w[i]    = key[i]
-        w[i+1]  = key[i+1]
-        w[i+2]  = key[i+2]
-        w[i+3]  = key[i+3]
+def KeyExpansion(key):
+    w = [None] * Nb*(Nr+1)
+    for i in xrange(0, Nk):
+        w[i]    = [key[4*i], key[4*i+1], key[4*i+2], key[4*i+3]]
 
     for i in xrange(Nk, Nb*(Nr+1)):
-        temp = w[i-1]
+        temp = [None] * 4
+        temp[0] = w[i-1][0]
+        temp[1] = w[i-1][1]
+        temp[2] = w[i-1][2]
+        temp[3] = w[i-1][3]
+
         if(i % Nk == 0):
-            temp = SubWord(RotWord(temp)) ^ Rcon[(i/Nk)]
+            RotWord(temp)
+            SubWord(temp)
+            temp = XorWords(temp, RCon(i/Nk))
         elif(Nk > 6 and i % Nk == 4):
-            temp = SubWord(temp)
-        w[i] = w[i-Nk] ^ temp
+            SubWord(temp)
+        w[i] = XorWords(w[i-Nk], temp)
+    return w
+
+def RCon(i):
+    c = 1
+    if(i == 0):
+        return 0
+    for j in xrange(0, i-1):
+        c = GaloisMultiply(0x02, c)
+    return [c, 0x0, 0x0, 0x0]
+
+def XorWords(a, b):
+    c = [None] * 4
+    for i in xrange(0, 4):
+        c[i] = a[i] ^ b[i]
+    return c
 
 def SubWord(word):
     for i in xrange(0, 4):
@@ -47,6 +67,7 @@ def RotWord(word):
     word[3] = first
 
 def Cipher(plaintext, w):
+    state = [ [None]*Nb ] * 4
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
             state[row][col] = plaintext[row + 4*col]
@@ -142,6 +163,14 @@ def Test_RotWord():
     RotWord(word)
     assert word == sub
 
+def Test_KeyExpansion():
+    key = [0x60, 0x3d, 0xeb, 0x10, 0x15, 0xca, 0x71, 0xbe, 0x2b, 0x73, 0xae, 0xf0, 0x85, 0x7d, 0x77, 0x81,
+           0x1f, 0x35, 0x2c, 0x07, 0x3b, 0x61, 0x08, 0xd7, 0x2d, 0x98, 0x10, 0xa3, 0x09, 0x14, 0xdf, 0xf4]
+    w = KeyExpansion(key)
+    assert w[59] == [0x70, 0x6c, 0x63, 0x1e]
+    assert w[26] == [0x24, 0x36, 0x0a, 0xf2]
+    assert w[40] == [0xde, 0x13, 0x69, 0x67]
+
 def Test_SubBytes():
     state = [[0x30,0x21,0x12,0x03],
              [0x74,0x65,0x56,0x47],
@@ -183,6 +212,26 @@ def Test_MixColumns():
              [0xbc,0x9D,0x01,0xc6]]
     MixColumns(state)
     assert state == mixed
+
+def Test_Cipher():
+    plaintext = [0x00,0x11,0x22,0x33,
+                 0x44,0x55,0x66,0x77,
+                 0x88,0x99,0xaa,0xbb,
+                 0xcc,0xdd,0xee,0xff]
+    key       = [0x00,0x01,0x02,0x03,
+                 0x04,0x05,0x06,0x07,
+                 0x08,0x09,0x0a,0x0b,
+                 0x0c,0x0d,0x0e,0x0f,
+                 0x10,0x11,0x12,0x13,
+                 0x14,0x15,0x16,0x17,
+                 0x18,0x19,0x1a,0x1b,
+                 0x1c,0x1d,0x1e,0x1f]
+    output = Cipher(plaintext, key)
+    ciphertext= [0x8e,0xa2,0xb7,0xca,
+                 0x51,0x67,0x45,0xbf,
+                 0xea,0xfc,0x49,0x90,
+                 0x4b,0x49,0x60,0x89]
+    assert output == ciphertext
 
 def TestApp(verbose = True):
     count = 0
@@ -235,6 +284,22 @@ def TestApp(verbose = True):
     else:
         if verbose: print "+\tRotWord: PASS"
 
+    try:
+        Test_KeyExpansion()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tKeyExpansion: FAIL"
+    else:
+        if verbose: print "+\tKeyExpansion: PASS"
+
+    try:
+        Test_Cipher()
+    except AssertionError:
+        count += 1
+        if verbose: print "-\tCipher: FAIL"
+    else:
+        if verbose: print "+\tCipher: PASS"
+
     if(count > 0):
         print "%d tests failed" % count
         exit()
@@ -245,6 +310,13 @@ def _printState(state):
     for row in xrange(0, 4):
         for col in xrange(0, Nb):
             print "%s " % format(state[row][col], '02x'),
+        print "\n",
+
+def _printExpandedKey(w):
+    for i in xrange(0, Nb*(Nr+1)):
+        print "%d: " % i,
+        for j in xrange(0, 4):
+            print "%s" % format(w[i][j], '02x'),
         print "\n",
 
 TestApp()

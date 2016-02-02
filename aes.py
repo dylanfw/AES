@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 Nb = 4      # Block size in Words
 Nr = 14     # Number of Rounds
 Nk = 8      # Key Length in Words

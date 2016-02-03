@@ -1,0 +1,648 @@
+************* Module aes
+C:  8, 0: Line too long (99/80) (line-too-long)
+C:  9, 0: Line too long (99/80) (line-too-long)
+C: 10, 0: Line too long (99/80) (line-too-long)
+C: 11, 0: Line too long (99/80) (line-too-long)
+C: 12, 0: Line too long (99/80) (line-too-long)
+C: 13, 0: Line too long (99/80) (line-too-long)
+C: 14, 0: Line too long (99/80) (line-too-long)
+C: 15, 0: Line too long (99/80) (line-too-long)
+C: 16, 0: Line too long (99/80) (line-too-long)
+C: 17, 0: Line too long (99/80) (line-too-long)
+C: 18, 0: Line too long (99/80) (line-too-long)
+C: 19, 0: Line too long (99/80) (line-too-long)
+C: 20, 0: Line too long (99/80) (line-too-long)
+C: 21, 0: Line too long (99/80) (line-too-long)
+C: 22, 0: Line too long (99/80) (line-too-long)
+C: 23, 0: Line too long (98/80) (line-too-long)
+C: 29, 0: Exactly one space required before assignment
+        w[i]    = [key[4*i], key[4*i+1], key[4*i+2], key[4*i+3]]
+                ^ (bad-whitespace)
+C: 38, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 42, 0: Unnecessary parens after 'elif' keyword (superfluous-parens)
+C: 49, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:114, 0: Line too long (95/80) (line-too-long)
+C:115, 0: Line too long (91/80) (line-too-long)
+C:117, 0: Line too long (95/80) (line-too-long)
+C:118, 0: Line too long (91/80) (line-too-long)
+C:120, 0: Line too long (95/80) (line-too-long)
+C:121, 0: Line too long (91/80) (line-too-long)
+C:123, 0: Line too long (95/80) (line-too-long)
+C:124, 0: Line too long (91/80) (line-too-long)
+C:151, 0: Exactly one space required after comma
+        column = [state[0][col],state[1][col],state[2][col],state[3][col]]
+                               ^ (bad-whitespace)
+C:151, 0: Exactly one space required after comma
+        column = [state[0][col],state[1][col],state[2][col],state[3][col]]
+                                             ^ (bad-whitespace)
+C:151, 0: Exactly one space required after comma
+        column = [state[0][col],state[1][col],state[2][col],state[3][col]]
+                                                           ^ (bad-whitespace)
+C:163, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                ^ (bad-whitespace)
+C:163, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                     ^ (bad-whitespace)
+C:163, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                          ^ (bad-whitespace)
+C:164, 0: Exactly one space required before assignment
+    sub  = [0x04,0xFD,0xC9,0x7B]
+         ^ (bad-whitespace)
+C:164, 0: Exactly one space required after comma
+    sub  = [0x04,0xFD,0xC9,0x7B]
+                ^ (bad-whitespace)
+C:164, 0: Exactly one space required after comma
+    sub  = [0x04,0xFD,0xC9,0x7B]
+                     ^ (bad-whitespace)
+C:164, 0: Exactly one space required after comma
+    sub  = [0x04,0xFD,0xC9,0x7B]
+                          ^ (bad-whitespace)
+C:169, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                ^ (bad-whitespace)
+C:169, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                     ^ (bad-whitespace)
+C:169, 0: Exactly one space required after comma
+    word = [0x30,0x21,0x12,0x03]
+                          ^ (bad-whitespace)
+C:170, 0: Exactly one space required before assignment
+    sub  = [0x21,0x12,0x03,0x30]
+         ^ (bad-whitespace)
+C:170, 0: Exactly one space required after comma
+    sub  = [0x21,0x12,0x03,0x30]
+                ^ (bad-whitespace)
+C:170, 0: Exactly one space required after comma
+    sub  = [0x21,0x12,0x03,0x30]
+                     ^ (bad-whitespace)
+C:170, 0: Exactly one space required after comma
+    sub  = [0x21,0x12,0x03,0x30]
+                          ^ (bad-whitespace)
+C:175, 0: Line too long (106/80) (line-too-long)
+C:176, 0: Line too long (106/80) (line-too-long)
+C:183, 0: Exactly one space required after comma
+    state = [[0x30,0x21,0x12,0x03],
+                  ^ (bad-whitespace)
+C:183, 0: Exactly one space required after comma
+    state = [[0x30,0x21,0x12,0x03],
+                       ^ (bad-whitespace)
+C:183, 0: Exactly one space required after comma
+    state = [[0x30,0x21,0x12,0x03],
+                            ^ (bad-whitespace)
+C:184, 0: Exactly one space required after comma
+             [0x74,0x65,0x56,0x47],
+                  ^ (bad-whitespace)
+C:184, 0: Exactly one space required after comma
+             [0x74,0x65,0x56,0x47],
+                       ^ (bad-whitespace)
+C:184, 0: Exactly one space required after comma
+             [0x74,0x65,0x56,0x47],
+                            ^ (bad-whitespace)
+C:185, 0: Exactly one space required after comma
+             [0xB8,0xA9,0x9A,0x8B],
+                  ^ (bad-whitespace)
+C:185, 0: Exactly one space required after comma
+             [0xB8,0xA9,0x9A,0x8B],
+                       ^ (bad-whitespace)
+C:185, 0: Exactly one space required after comma
+             [0xB8,0xA9,0x9A,0x8B],
+                            ^ (bad-whitespace)
+C:186, 0: Exactly one space required after comma
+             [0xFC,0xED,0xDE,0xCF]]
+                  ^ (bad-whitespace)
+C:186, 0: Exactly one space required after comma
+             [0xFC,0xED,0xDE,0xCF]]
+                       ^ (bad-whitespace)
+C:186, 0: Exactly one space required after comma
+             [0xFC,0xED,0xDE,0xCF]]
+                            ^ (bad-whitespace)
+C:188, 0: Exactly one space required before assignment
+    sub   = [[0x04,0xFD,0xC9,0x7B],
+          ^ (bad-whitespace)
+C:188, 0: Exactly one space required after comma
+    sub   = [[0x04,0xFD,0xC9,0x7B],
+                  ^ (bad-whitespace)
+C:188, 0: Exactly one space required after comma
+    sub   = [[0x04,0xFD,0xC9,0x7B],
+                       ^ (bad-whitespace)
+C:188, 0: Exactly one space required after comma
+    sub   = [[0x04,0xFD,0xC9,0x7B],
+                            ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+             [0x92,0x4D,0xB1,0xA0],
+                  ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+             [0x92,0x4D,0xB1,0xA0],
+                       ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+             [0x92,0x4D,0xB1,0xA0],
+                            ^ (bad-whitespace)
+C:190, 0: Exactly one space required after comma
+             [0x6C,0xD3,0xB8,0x3D],
+                  ^ (bad-whitespace)
+C:190, 0: Exactly one space required after comma
+             [0x6C,0xD3,0xB8,0x3D],
+                       ^ (bad-whitespace)
+C:190, 0: Exactly one space required after comma
+             [0x6C,0xD3,0xB8,0x3D],
+                            ^ (bad-whitespace)
+C:191, 0: Exactly one space required after comma
+             [0xB0,0x55,0x1D,0x8A]]
+                  ^ (bad-whitespace)
+C:191, 0: Exactly one space required after comma
+             [0xB0,0x55,0x1D,0x8A]]
+                       ^ (bad-whitespace)
+C:191, 0: Exactly one space required after comma
+             [0xB0,0x55,0x1D,0x8A]]
+                            ^ (bad-whitespace)
+C:195, 0: Exactly one space required after comma
+    state = [[0x00,0x01,0x02,0x03],
+                  ^ (bad-whitespace)
+C:195, 0: Exactly one space required after comma
+    state = [[0x00,0x01,0x02,0x03],
+                       ^ (bad-whitespace)
+C:195, 0: Exactly one space required after comma
+    state = [[0x00,0x01,0x02,0x03],
+                            ^ (bad-whitespace)
+C:196, 0: Exactly one space required after comma
+             [0x04,0x05,0x06,0x07],
+                  ^ (bad-whitespace)
+C:196, 0: Exactly one space required after comma
+             [0x04,0x05,0x06,0x07],
+                       ^ (bad-whitespace)
+C:196, 0: Exactly one space required after comma
+             [0x04,0x05,0x06,0x07],
+                            ^ (bad-whitespace)
+C:197, 0: Exactly one space required after comma
+             [0x08,0x09,0x0A,0x0B],
+                  ^ (bad-whitespace)
+C:197, 0: Exactly one space required after comma
+             [0x08,0x09,0x0A,0x0B],
+                       ^ (bad-whitespace)
+C:197, 0: Exactly one space required after comma
+             [0x08,0x09,0x0A,0x0B],
+                            ^ (bad-whitespace)
+C:198, 0: Exactly one space required after comma
+             [0x0C,0x0D,0x0E,0x0F]]
+                  ^ (bad-whitespace)
+C:198, 0: Exactly one space required after comma
+             [0x0C,0x0D,0x0E,0x0F]]
+                       ^ (bad-whitespace)
+C:198, 0: Exactly one space required after comma
+             [0x0C,0x0D,0x0E,0x0F]]
+                            ^ (bad-whitespace)
+C:199, 0: Exactly one space required after comma
+    shift = [[0x00,0x01,0x02,0x03],
+                  ^ (bad-whitespace)
+C:199, 0: Exactly one space required after comma
+    shift = [[0x00,0x01,0x02,0x03],
+                       ^ (bad-whitespace)
+C:199, 0: Exactly one space required after comma
+    shift = [[0x00,0x01,0x02,0x03],
+                            ^ (bad-whitespace)
+C:200, 0: Exactly one space required after comma
+             [0x05,0x06,0x07,0x04],
+                  ^ (bad-whitespace)
+C:200, 0: Exactly one space required after comma
+             [0x05,0x06,0x07,0x04],
+                       ^ (bad-whitespace)
+C:200, 0: Exactly one space required after comma
+             [0x05,0x06,0x07,0x04],
+                            ^ (bad-whitespace)
+C:201, 0: Exactly one space required after comma
+             [0x0A,0x0B,0x08,0x09],
+                  ^ (bad-whitespace)
+C:201, 0: Exactly one space required after comma
+             [0x0A,0x0B,0x08,0x09],
+                       ^ (bad-whitespace)
+C:201, 0: Exactly one space required after comma
+             [0x0A,0x0B,0x08,0x09],
+                            ^ (bad-whitespace)
+C:202, 0: Exactly one space required after comma
+             [0x0F,0x0C,0x0D,0x0E]]
+                  ^ (bad-whitespace)
+C:202, 0: Exactly one space required after comma
+             [0x0F,0x0C,0x0D,0x0E]]
+                       ^ (bad-whitespace)
+C:202, 0: Exactly one space required after comma
+             [0x0F,0x0C,0x0D,0x0E]]
+                            ^ (bad-whitespace)
+C:213, 0: Exactly one space required after comma
+    state = [[0xdb,0xF2,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:213, 0: Exactly one space required after comma
+    state = [[0xdb,0xF2,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:213, 0: Exactly one space required after comma
+    state = [[0xdb,0xF2,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:214, 0: Exactly one space required after comma
+             [0x13,0x0A,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:214, 0: Exactly one space required after comma
+             [0x13,0x0A,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:214, 0: Exactly one space required after comma
+             [0x13,0x0A,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:215, 0: Exactly one space required after comma
+             [0x53,0x22,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:215, 0: Exactly one space required after comma
+             [0x53,0x22,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:215, 0: Exactly one space required after comma
+             [0x53,0x22,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:216, 0: Exactly one space required after comma
+             [0x45,0x5C,0x01,0xc6]]
+                  ^ (bad-whitespace)
+C:216, 0: Exactly one space required after comma
+             [0x45,0x5C,0x01,0xc6]]
+                       ^ (bad-whitespace)
+C:216, 0: Exactly one space required after comma
+             [0x45,0x5C,0x01,0xc6]]
+                            ^ (bad-whitespace)
+C:217, 0: Exactly one space required after comma
+    mixed = [[0x8e,0x9F,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:217, 0: Exactly one space required after comma
+    mixed = [[0x8e,0x9F,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:217, 0: Exactly one space required after comma
+    mixed = [[0x8e,0x9F,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:218, 0: Exactly one space required after comma
+             [0x4d,0xDC,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:218, 0: Exactly one space required after comma
+             [0x4d,0xDC,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:218, 0: Exactly one space required after comma
+             [0x4d,0xDC,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:219, 0: Exactly one space required after comma
+             [0xa1,0x58,0x01,0xc6],
+                  ^ (bad-whitespace)
+C:219, 0: Exactly one space required after comma
+             [0xa1,0x58,0x01,0xc6],
+                       ^ (bad-whitespace)
+C:219, 0: Exactly one space required after comma
+             [0xa1,0x58,0x01,0xc6],
+                            ^ (bad-whitespace)
+C:220, 0: Exactly one space required after comma
+             [0xbc,0x9D,0x01,0xc6]]
+                  ^ (bad-whitespace)
+C:220, 0: Exactly one space required after comma
+             [0xbc,0x9D,0x01,0xc6]]
+                       ^ (bad-whitespace)
+C:220, 0: Exactly one space required after comma
+             [0xbc,0x9D,0x01,0xc6]]
+                            ^ (bad-whitespace)
+C:225, 0: Exactly one space required after comma
+    plaintext = [0x00,0x11,0x22,0x33,
+                     ^ (bad-whitespace)
+C:225, 0: Exactly one space required after comma
+    plaintext = [0x00,0x11,0x22,0x33,
+                          ^ (bad-whitespace)
+C:225, 0: Exactly one space required after comma
+    plaintext = [0x00,0x11,0x22,0x33,
+                               ^ (bad-whitespace)
+C:226, 0: Exactly one space required after comma
+                 0x44,0x55,0x66,0x77,
+                     ^ (bad-whitespace)
+C:226, 0: Exactly one space required after comma
+                 0x44,0x55,0x66,0x77,
+                          ^ (bad-whitespace)
+C:226, 0: Exactly one space required after comma
+                 0x44,0x55,0x66,0x77,
+                               ^ (bad-whitespace)
+C:227, 0: Exactly one space required after comma
+                 0x88,0x99,0xaa,0xbb,
+                     ^ (bad-whitespace)
+C:227, 0: Exactly one space required after comma
+                 0x88,0x99,0xaa,0xbb,
+                          ^ (bad-whitespace)
+C:227, 0: Exactly one space required after comma
+                 0x88,0x99,0xaa,0xbb,
+                               ^ (bad-whitespace)
+C:228, 0: Exactly one space required after comma
+                 0xcc,0xdd,0xee,0xff]
+                     ^ (bad-whitespace)
+C:228, 0: Exactly one space required after comma
+                 0xcc,0xdd,0xee,0xff]
+                          ^ (bad-whitespace)
+C:228, 0: Exactly one space required after comma
+                 0xcc,0xdd,0xee,0xff]
+                               ^ (bad-whitespace)
+C:229, 0: Exactly one space required before assignment
+    key       = [0x00,0x01,0x02,0x03,
+              ^ (bad-whitespace)
+C:229, 0: Exactly one space required after comma
+    key       = [0x00,0x01,0x02,0x03,
+                     ^ (bad-whitespace)
+C:229, 0: Exactly one space required after comma
+    key       = [0x00,0x01,0x02,0x03,
+                          ^ (bad-whitespace)
+C:229, 0: Exactly one space required after comma
+    key       = [0x00,0x01,0x02,0x03,
+                               ^ (bad-whitespace)
+C:230, 0: Exactly one space required after comma
+                 0x04,0x05,0x06,0x07,
+                     ^ (bad-whitespace)
+C:230, 0: Exactly one space required after comma
+                 0x04,0x05,0x06,0x07,
+                          ^ (bad-whitespace)
+C:230, 0: Exactly one space required after comma
+                 0x04,0x05,0x06,0x07,
+                               ^ (bad-whitespace)
+C:231, 0: Exactly one space required after comma
+                 0x08,0x09,0x0a,0x0b,
+                     ^ (bad-whitespace)
+C:231, 0: Exactly one space required after comma
+                 0x08,0x09,0x0a,0x0b,
+                          ^ (bad-whitespace)
+C:231, 0: Exactly one space required after comma
+                 0x08,0x09,0x0a,0x0b,
+                               ^ (bad-whitespace)
+C:232, 0: Exactly one space required after comma
+                 0x0c,0x0d,0x0e,0x0f,
+                     ^ (bad-whitespace)
+C:232, 0: Exactly one space required after comma
+                 0x0c,0x0d,0x0e,0x0f,
+                          ^ (bad-whitespace)
+C:232, 0: Exactly one space required after comma
+                 0x0c,0x0d,0x0e,0x0f,
+                               ^ (bad-whitespace)
+C:233, 0: Exactly one space required after comma
+                 0x10,0x11,0x12,0x13,
+                     ^ (bad-whitespace)
+C:233, 0: Exactly one space required after comma
+                 0x10,0x11,0x12,0x13,
+                          ^ (bad-whitespace)
+C:233, 0: Exactly one space required after comma
+                 0x10,0x11,0x12,0x13,
+                               ^ (bad-whitespace)
+C:234, 0: Exactly one space required after comma
+                 0x14,0x15,0x16,0x17,
+                     ^ (bad-whitespace)
+C:234, 0: Exactly one space required after comma
+                 0x14,0x15,0x16,0x17,
+                          ^ (bad-whitespace)
+C:234, 0: Exactly one space required after comma
+                 0x14,0x15,0x16,0x17,
+                               ^ (bad-whitespace)
+C:235, 0: Exactly one space required after comma
+                 0x18,0x19,0x1a,0x1b,
+                     ^ (bad-whitespace)
+C:235, 0: Exactly one space required after comma
+                 0x18,0x19,0x1a,0x1b,
+                          ^ (bad-whitespace)
+C:235, 0: Exactly one space required after comma
+                 0x18,0x19,0x1a,0x1b,
+                               ^ (bad-whitespace)
+C:236, 0: Exactly one space required after comma
+                 0x1c,0x1d,0x1e,0x1f]
+                     ^ (bad-whitespace)
+C:236, 0: Exactly one space required after comma
+                 0x1c,0x1d,0x1e,0x1f]
+                          ^ (bad-whitespace)
+C:236, 0: Exactly one space required after comma
+                 0x1c,0x1d,0x1e,0x1f]
+                               ^ (bad-whitespace)
+C:238, 0: Exactly one space required before assignment
+    ciphertext= [0x8e,0xa2,0xb7,0xca,
+              ^ (bad-whitespace)
+C:238, 0: Exactly one space required after comma
+    ciphertext= [0x8e,0xa2,0xb7,0xca,
+                     ^ (bad-whitespace)
+C:238, 0: Exactly one space required after comma
+    ciphertext= [0x8e,0xa2,0xb7,0xca,
+                          ^ (bad-whitespace)
+C:238, 0: Exactly one space required after comma
+    ciphertext= [0x8e,0xa2,0xb7,0xca,
+                               ^ (bad-whitespace)
+C:239, 0: Exactly one space required after comma
+                 0x51,0x67,0x45,0xbf,
+                     ^ (bad-whitespace)
+C:239, 0: Exactly one space required after comma
+                 0x51,0x67,0x45,0xbf,
+                          ^ (bad-whitespace)
+C:239, 0: Exactly one space required after comma
+                 0x51,0x67,0x45,0xbf,
+                               ^ (bad-whitespace)
+C:240, 0: Exactly one space required after comma
+                 0xea,0xfc,0x49,0x90,
+                     ^ (bad-whitespace)
+C:240, 0: Exactly one space required after comma
+                 0xea,0xfc,0x49,0x90,
+                          ^ (bad-whitespace)
+C:240, 0: Exactly one space required after comma
+                 0xea,0xfc,0x49,0x90,
+                               ^ (bad-whitespace)
+C:241, 0: Exactly one space required after comma
+                 0x4b,0x49,0x60,0x89]
+                     ^ (bad-whitespace)
+C:241, 0: Exactly one space required after comma
+                 0x4b,0x49,0x60,0x89]
+                          ^ (bad-whitespace)
+C:241, 0: Exactly one space required after comma
+                 0x4b,0x49,0x60,0x89]
+                               ^ (bad-whitespace)
+C:244, 0: No space allowed around keyword argument assignment
+def TestApp(verbose = True):
+                    ^ (bad-whitespace)
+C:311, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  3, 0: Invalid constant name "Nb" (invalid-name)
+C:  4, 0: Invalid constant name "Nr" (invalid-name)
+C:  5, 0: Invalid constant name "Nk" (invalid-name)
+C:  7, 0: Invalid constant name "SBox" (invalid-name)
+C: 26, 0: Invalid function name "KeyExpansion" (invalid-name)
+C: 26, 0: Missing function docstring (missing-docstring)
+C: 27, 4: Invalid variable name "w" (invalid-name)
+C: 47, 0: Invalid function name "RCon" (invalid-name)
+C: 47, 0: Missing function docstring (missing-docstring)
+C: 48, 4: Invalid variable name "c" (invalid-name)
+C: 52, 8: Invalid variable name "c" (invalid-name)
+W: 51, 8: Unused variable 'j' (unused-variable)
+C: 55, 0: Invalid function name "XorWords" (invalid-name)
+C: 55, 0: Invalid argument name "a" (invalid-name)
+C: 55, 0: Invalid argument name "b" (invalid-name)
+C: 55, 0: Missing function docstring (missing-docstring)
+C: 56, 4: Invalid variable name "c" (invalid-name)
+C: 61, 0: Invalid function name "SubWord" (invalid-name)
+C: 61, 0: Missing function docstring (missing-docstring)
+C: 65, 0: Invalid function name "RotWord" (invalid-name)
+C: 65, 0: Missing function docstring (missing-docstring)
+C: 71, 0: Invalid function name "Cipher" (invalid-name)
+C: 71, 0: Missing function docstring (missing-docstring)
+C: 72, 4: Invalid variable name "w" (invalid-name)
+C: 82, 8: Invalid variable name "r" (invalid-name)
+C: 98, 0: Invalid function name "SubBytes" (invalid-name)
+C: 98, 0: Missing function docstring (missing-docstring)
+C:103, 0: Invalid function name "ShiftRows" (invalid-name)
+C:103, 0: Missing function docstring (missing-docstring)
+W:105,12: Unused variable 'i' (unused-variable)
+C:111, 0: Invalid function name "MixColumns" (invalid-name)
+C:111, 0: Missing function docstring (missing-docstring)
+C:132, 0: Invalid function name "GaloisMultiply" (invalid-name)
+C:132, 0: Invalid argument name "a" (invalid-name)
+C:132, 0: Invalid argument name "b" (invalid-name)
+C:132, 0: Missing function docstring (missing-docstring)
+C:133,18: More than one statement on a single line (multiple-statements)
+C:149, 0: Invalid function name "AddRoundKey" (invalid-name)
+C:149, 0: Invalid argument name "w" (invalid-name)
+C:149, 0: Invalid argument name "r" (invalid-name)
+C:149, 0: Missing function docstring (missing-docstring)
+C:162, 0: Invalid function name "Test_SubWord" (invalid-name)
+C:162, 0: Missing function docstring (missing-docstring)
+C:168, 0: Invalid function name "Test_RotWord" (invalid-name)
+C:168, 0: Missing function docstring (missing-docstring)
+C:174, 0: Invalid function name "Test_KeyExpansion" (invalid-name)
+C:174, 0: Missing function docstring (missing-docstring)
+C:177, 4: Invalid variable name "w" (invalid-name)
+C:182, 0: Invalid function name "Test_SubBytes" (invalid-name)
+C:182, 0: Missing function docstring (missing-docstring)
+C:194, 0: Invalid function name "Test_ShiftRows" (invalid-name)
+C:194, 0: Missing function docstring (missing-docstring)
+C:206, 0: Invalid function name "Test_GaloisMultiply" (invalid-name)
+C:206, 0: Missing function docstring (missing-docstring)
+C:212, 0: Invalid function name "Test_MixColumns" (invalid-name)
+C:212, 0: Missing function docstring (missing-docstring)
+C:224, 0: Invalid function name "Test_Cipher" (invalid-name)
+C:224, 0: Missing function docstring (missing-docstring)
+C:244, 0: Invalid function name "TestApp" (invalid-name)
+C:244, 0: Missing function docstring (missing-docstring)
+C:246,16: More than one statement on a single line (multiple-statements)
+C:251,20: More than one statement on a single line (multiple-statements)
+C:253,20: More than one statement on a single line (multiple-statements)
+C:259,20: More than one statement on a single line (multiple-statements)
+C:261,20: More than one statement on a single line (multiple-statements)
+C:267,20: More than one statement on a single line (multiple-statements)
+C:269,20: More than one statement on a single line (multiple-statements)
+C:275,20: More than one statement on a single line (multiple-statements)
+C:277,20: More than one statement on a single line (multiple-statements)
+C:283,20: More than one statement on a single line (multiple-statements)
+C:285,20: More than one statement on a single line (multiple-statements)
+C:291,20: More than one statement on a single line (multiple-statements)
+C:293,20: More than one statement on a single line (multiple-statements)
+C:299,20: More than one statement on a single line (multiple-statements)
+C:301,20: More than one statement on a single line (multiple-statements)
+C:307,20: More than one statement on a single line (multiple-statements)
+C:309,20: More than one statement on a single line (multiple-statements)
+R:244, 0: Too many branches (35/12) (too-many-branches)
+R:244, 0: Too many statements (81/50) (too-many-statements)
+C:317, 0: Invalid function name "_printState" (invalid-name)
+C:317, 0: Missing function docstring (missing-docstring)
+C:323, 0: Invalid function name "_printExpandedKey" (invalid-name)
+C:323, 0: Invalid argument name "w" (invalid-name)
+C:323, 0: Missing function docstring (missing-docstring)
+W:330,15: Redefining built-in 'input' (redefined-builtin)
+C:330, 0: Invalid function name "_printText" (invalid-name)
+C:330, 0: Missing function docstring (missing-docstring)
+
+
+Report
+======
+238 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |23     |23         |=          |0.00        |100.00   |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |255    |255      |=          |
++-----------+-------+---------+-----------+
+|refactor   |2      |2        |=          |
++-----------+-------+---------+-----------+
+|warning    |3      |3        |=          |
++-----------+-------+---------+-----------+
+|error      |0      |0        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++--------------------+------------+
+|message id          |occurrences |
++====================+============+
+|bad-whitespace      |142         |
++--------------------+------------+
+|invalid-name        |41          |
++--------------------+------------+
+|line-too-long       |26          |
++--------------------+------------+
+|missing-docstring   |24          |
++--------------------+------------+
+|multiple-statements |18          |
++--------------------+------------+
+|superfluous-parens  |4           |
++--------------------+------------+
+|unused-variable     |2           |
++--------------------+------------+
+|too-many-statements |1           |
++--------------------+------------+
+|too-many-branches   |1           |
++--------------------+------------+
+|redefined-builtin   |1           |
++--------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at -0.92/10 (previous run: -0.92/10, +0.00)
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |283    |97.25 |283      |=          |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |0        |=          |
++----------+-------+------+---------+-----------+
+|comment   |5      |1.72  |5        |=          |
++----------+-------+------+---------+-----------+
+|empty     |3      |1.03  |3        |=          |
++----------+-------+------+---------+-----------+
+
+
+
